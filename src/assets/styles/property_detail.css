@@ -1,0 +1,221 @@
+
+.list-details-section {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    box-shadow: 0 21px 15px -11px rgba(221, 221, 221, 0.28);
+}
+
+.list-details-section ul li {
+    list-style-type: none;
+}
+
+.list-details-section h4 {
+    font-weight: 600;
+    line-height: 1;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.list-details-section h4::before {
+    background: #7f56d9;
+    border: 0 none;
+    content: "";
+    height: 3px;
+    left: 0px;
+    margin: 8px 0 10px;
+    position: absolute;
+    bottom: -20px;
+    width: 40px;
+    border-radius: 30px;
+}
+
+.list-subtitle {
+    font-weight: 600;
+    line-height: 1;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.list-subtitle::before {
+    background: #7f56d9;
+    border: 0 none;
+    content: "";
+    height: 3px;
+    left: 0px;
+    margin: 8px 0 10px;
+    position: absolute;
+    bottom: -20px;
+    width: 40px;
+    border-radius: 30px;
+}
+
+/* General Styling for the container */
+.latest-property-section {
+    padding: 20px;
+    border-radius: 8px; /* Slight rounding of corners */
+    font-family: sans-serif;
+}
+
+/* Section Title */
+.latest-property-section h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    padding-bottom: 5px;
+    /* Creating the purple underline effect for "Latest Property" */
+    border-bottom: 3px solid #6f42c1; /* Purple line */
+    display: inline-block; /* Makes the border only cover the text width */
+    margin-bottom: 20px;
+}
+
+/* Property Card Layout */
+.property-card {
+    display: flex; /* Use Flexbox for side-by-side image and details */
+    margin: 20px 0;
+    align-items: flex-start; /* Align items to the top */
+}
+
+/* Image Container */
+.property-image-container {
+    position: relative;
+    display: flex;
+    max-width: 100%; /* Fixed width for the image placeholder */
+    flex-shrink: 0; /* Prevents the image from shrinking */
+    margin-right: 15px;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+/* Image Placeholder Styling (for the grey box) */
+.property-image-placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888888;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Type Badge (Rent/Sale) */
+.property-type-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-bottom-left-radius: 4px;
+    text-transform: uppercase;
+}
+
+.rent-badge {
+    background-color: #ff5722; /* Orange color for Rent */
+}
+
+.sale-badge {
+    background-color: #dc3545; /* Reddish color for Sale */
+}
+
+/* Property Details */
+.property-details {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Category Tag (Residential/Office) */
+.property-category-tag {
+    font-size: 12px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    align-self: flex-start; /* Important to keep the tag small */
+}
+
+.residential-tag {
+    background-color: #f8f0ff; /* Light purple background */
+    color: #6f42c1; /* Purple text */
+}
+
+.office-tag {
+    background-color: #f0f8ff; /* Light blue background */
+    color: #007bff; /* Blue text (example for Office) */
+}
+
+/* Property Title */
+.property-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 5px 0;
+}
+
+/* Property Location */
+.property-location {
+    font-size: 0.85rem;
+    color: #777;
+    margin: 0 0 8px 0;
+}
+
+.property-location i {
+    color: #dc3545; /* Red icon color */
+    margin-right: 5px;
+}
+
+/* Price Tag */
+.property-price-tag {
+    background-color: #6f42c1; /* Purple background */
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 4px;
+    align-self: flex-start; /* Important to keep the box tight to the content */
+    margin-top: 5px;
+}
+
+/* Separator Line */
+.card-separator {
+    border: none;
+    border-top: 1px solid #eeeeee;
+    margin: 10px 0;
+}
+
+.user-avatar-placeholder {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: #e9ecef;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+}
+
+.user-name-text h5 {
+    color: #343a40;
+    font-weight: 500;
+}
+
+.list-unstyled-2 li{
+    font-size: 15px;
+    font-weight: 600;
+    color: #484848;
+    width:48.4%;
+    line-height: 32px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 5px;
+    padding: 3px 10px;
+    border-radius: 4px;
+    float: left;
+}

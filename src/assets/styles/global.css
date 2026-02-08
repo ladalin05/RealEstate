@@ -1,0 +1,268 @@
+/* --- General Layout --- */
+body {
+    background-color: #f0f2f5;
+    overflow-x: hidden;
+}
+.homepage-content { 
+    padding-bottom: 50px;
+}
+
+/* Scroll to Top Button */
+.vfx-scroll-top-btn {
+    z-index: 1000;
+}
+
+/* Global animations */
+@keyframes fa-spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+.fa-spin-slow {
+    animation: fa-spin-slow 2s linear infinite;
+}
+
+
+/* Custom Background Color (matching the original 'bg-cb') */
+.bg-light-blue {
+    background-color: #f8faff; /* Light, subtle blue/grey background */
+}
+
+
+/* Call to Action Banner Gradient (More modern look) */
+.bg-primary-gradient {
+    background: linear-gradient(90deg, #007bff, #0056b3); /* Blue Gradient */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Enhancements for Content Sections */
+.about-section {
+    transition: background-color 0.3s ease;
+}
+
+.call-to-act {
+	align-items: center;
+    padding: 20px 6.5rem;
+	color: #fff;
+	display: flex;
+    justify-content: space-between;
+	flex-wrap: wrap;
+	width: 100%;
+    background: #7f56d9;
+}
+
+/* Styling for the Video Placeholder */
+.popup-vid {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.popup-vid img {
+    width: 100%;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.popup-vid:hover img {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.video-overlay i {
+    font-size: 4rem;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.contact-info-item {
+    text-align: center;
+    color: rgb(34, 34, 34);
+    min-height: 235px;
+    margin-bottom: 20px;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 3px 15px;
+    padding: 25px 20px;
+    background: rgb(255, 255, 255);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(222, 226, 230);
+    border-image: initial;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.contact-info-item i
+ {
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    margin-bottom: 20px;
+    background: rgb(127, 86, 217);
+    border-radius: 40px;
+}
+
+.contact-info-item a {
+    color: rgb(34, 34, 34);
+    position: relative;
+    font-family: Nunito, sans-serif;
+    text-decoration: none;
+}
+
+.contact-info-item .vfx-social-button li a i {
+    width: 38px;
+    height: 38px;
+    margin: auto auto;
+    font-size: 16px;
+    line-height: 38px;
+    margin-bottom: 0px;
+    background: rgb(106, 106, 106);
+}
+
+.btn.vfx7 {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(255, 255, 255) !important;
+    background: rgb(127, 86, 217);
+    padding: 7px 18px;
+    border-radius: 6px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    border-image: initial;
+    transition: 0.3s;
+}
+
+.simple-slider {
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 20px;
+  padding-bottom: 10px;
+  white-space: nowrap;
+}
+
+.simple-slider::-webkit-scrollbar {
+  height: 8px;
+}
+
+.simple-slider::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.nice-select {
+    background-color: transparent;
+    border-bottom: 1px solid #ddd;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 15px;
+    position: relative;
+    text-align: left !important;
+    user-select: none;
+}
+
+.nice-select span {
+    display: flex;
+    width: 100% !important;
+    color: #888;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 2.4;
+}
+
+.nice-select .list {
+    transform: translate3d(1.1111px, 44.2222px, 0px) !important;
+    background-color: #fff;
+    width: 100%;
+    overflow-y: scroll;
+    max-height: 160px;
+}
+
+.nice-select .option {
+    color: #333;
+    cursor: pointer;
+    font-weight: 600;
+    line-height: 38px;
+    min-height: 38px;
+    outline: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    padding-left: 15px;
+    text-align: left;
+    transition: all 0.2s;
+}
+
+.nice-select .option:hover {
+    background-color: #7f56d9;
+    color: #fff;
+}
+
+.nice-select .dropdown-toggle {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Move default arrow to the left */
+.nice-select .dropdown-toggle::after {
+    margin: auto 0;
+}
+
+.item-filter-list a {
+    color: #333333;
+    font-size: 16px;
+    line-height: 0;
+    display: inline-block;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 8px;
+}
+
+.property a {
+    color: #333333;
+    text-decoration: none;
+}
+
+.sidebar-left select.form-control {
+    padding: 0.75rem 1rem;
+    color: #444;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    appearance: none;               /* remove default arrow */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='20,50 70,100 120,50' stroke='%23888' stroke-width='15' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 12px;
+}
+
+.sidebar-left select.form-control:focus {
+    border-color: #666;
+    box-shadow: 0 0 4px rgba(0,0,0,0.15);
+    outline:#0056b3;
+}
+
+
+.sidebar-left select.form-control select option {
+    border: 5px solid red;
+}

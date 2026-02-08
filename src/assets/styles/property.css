@@ -1,0 +1,221 @@
+/* --- Category Slider --- */
+.custom-scrollbar {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 15px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #adb5bd;
+    border-radius: 3px;
+}
+
+.vfx-cat-item {
+    transition: transform 0.3s ease;
+    border: 1px solid #ddd;
+    background: #fff;
+    /* Ensure no vertical margin collapse */
+    display: inline-block; 
+}
+.vfx-cat-item:hover {
+    transform: translateY(-5px);
+    /* Stronger, but professional shadow */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15) !important; 
+}
+
+.vfx-single-property-box-area {
+    border-radius: 8px;
+    background: #fff;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+    border: 1px solid #eee;
+    height: 100%; /* Ensure cards in grid are same height */
+    display: flex;
+    flex-direction: column;
+}
+
+.vfx-single-property-box-area:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.vfx-property-item {
+    position: relative;
+}
+
+.vfx-property-img img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.vfx-feature-text {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    list-style: none;
+    padding: 0;
+    z-index: 10;
+}
+
+.vfx-feature-text li {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.vfx-feature-text span {
+    color: #fff;
+    padding: 3px 8px;
+    font-size: 0.8rem;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.feature_cb { 
+    background-color: #007bff; /* Blue for 'Rent' */
+}
+.feature_or { 
+    background-color: #ffc107; /* Amber for 'Sale' */
+}
+
+.verified_item i {
+    color: #fff;
+    background-color: #28a745; /* Success Green */
+    padding: 3px 5px;
+    border-radius: 50%;
+    font-size: 0.7rem;
+}
+
+.vfx-property-author-wrap {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 8px 10px;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.vfx-property-author-wrap .text-tlt {
+    font-weight: bold;
+}
+
+.vfx-save-btn a {
+    color: #fff;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.vfx-property-title-box-area {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.vfx-property-title-box-area h4 a {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.vfx-property-title-box-area h4 a:hover {
+    color: #007bff;
+}
+
+.vfx-property-location i {
+    color: #007bff;
+}
+
+.property-author img {
+    border: 2px solid #fff;
+}
+
+.vfx-trend-open-price {
+    font-size: 1.3rem;
+    color: #28a745; /* Green for price */
+    font-weight: 700;
+}
+
+.vfx-scroll-top-btn {
+    z-index: 1000;
+}
+
+/* Custom Colors/Styling */
+.breadcrumb-section {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.breadcrumb-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.5; /* Adjusted from op-2 (0.2) for better visibility */
+}
+
+.breadcrumb-menu {
+    position: relative; /* Ensure text is above the overlay */
+    z-index: 10;
+}
+
+.breadcrumb-menu span a,
+.breadcrumb-menu span {
+    color: white;
+    text-decoration: none;
+}
+
+.vfx-single-property-box-area {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    transition: transform 0.3s ease-in-out;
+}
+
+.vfx-single-property-box-area:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.vfx-property-item {
+    position: relative;
+}
+
+.vfx-property-item img {
+    height: 220px; /* Fixed height for consistency in grid view */
+    object-fit: cover;
+}
+
+
+.vfx-feature-text li {
+    display: inline-block;
+    margin-right: 5px;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: white;
+}
+
+.vfx-property-author-wrap img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 5px;
+}
+

@@ -1,0 +1,133 @@
+/* =========================================================
+   Section & Hero Styling
+   ========================================================= */
+
+/* --- Custom Variables (for theming) --- */
+:root {
+    --primary-color: #5d3f9b; /* Deep purple accent */
+    --overlay-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
+    --filter-bg: rgba(255, 255, 255, 0.9); /* Transparent white filter bar */
+}
+
+/* --- Hero Section --- */
+.hero {
+    position: relative;
+    background-size: cover;
+    background-position: center center;
+    color: #fff;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Add vertical space between sections */
+.section-padding {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+/* --- Overlay --- */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--overlay-color);
+    z-index: 1;
+}
+
+/* --- Positioned Content --- */
+.vfx-posabs {
+    position: relative;
+    z-index: 2; /* Above overlay */
+}
+
+/* --- Header Text in Hero --- */
+.header-text {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.header-text h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+/* =========================================================
+   Search Filter Box
+   ========================================================= */
+.search-filter-box {
+    background-color: var(--filter-bg);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    max-width: 1000px;
+    margin: auto;
+}
+
+.search-filter-box .form-control, 
+.search-filter-box .custom-select {
+    height: calc(1.5em + 1rem + 2px);
+}
+
+/* --- Search Button --- */
+.search-property-btn {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #fff;
+    font-weight: bold;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    white-space: nowrap;
+}
+.search-property-btn:hover {
+    background-color: #4b3080;
+    border-color: #4b3080;
+}
+
+/* --- Input Groups in Search --- */
+.input-group-text {
+    background-color: #fff;
+    border-left: none;
+}
+.input-group input {
+    border-right: none;
+}
+
+/* =========================================================
+   Responsive Adjustments
+   ========================================================= */
+@media (min-width: 992px) {
+    .search-filter-box {
+        justify-content: space-between;
+    }
+}
+@media (max-width: 991.98px) {
+    .search-filter-box > div {
+        flex-basis: 100%;
+    }
+}
+
+/* =========================================================
+   Section Titles (existing styles)
+   ========================================================= */
+.section-title h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 0;
+}
+.view-more a {
+    color: #007bff;
+    transition: color 0.2s;
+}
+.view-more a:hover {
+    color: #0056b3;
+}
+.view-more svg {
+    margin-left: 5px;
+}
+
+
