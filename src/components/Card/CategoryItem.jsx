@@ -9,16 +9,14 @@ const CategoryItem = ({ type }) => {
 
   
   return (
-    <div className="p-2 mt-3"> 
-      <div className="vfx-single-team-member vfx-cat-item vfx2 shadow-sm rounded py-4"> 
-        <a href={link} title={type_name}>
-          <Image type_image={`storage/${type_image}`} type_name={type_name} style={{ width: '250px', height: '150px', objectFit: 'cover' }} className={"img-fluid"}  />
+    <div className="p-2 mt-3">
+      <div className="category-item-v2 text-center p-3">
+        <a href={`/types/${type_slug}/${type.id}`} className="text-decoration-none group">
+          <div className="cat-circle shadow-sm mb-4 mx-auto">
+            <img src={`http://127.0.0.1:8000/storage/${type_image}`} alt={type.type_name} /> 
+          </div>
+          <h6 className="text-dark fw-bold mb-0">{type_name}</h6>
         </a>
-        <div className="vfx-single-team-info p-3 text-center">
-          <h4 className="mb-0">
-            <a href={link} title={type_name} className="text-dark text-decoration-none fw-bold">{type_name}</a>
-          </h4>
-        </div>
       </div>
     </div>
   );

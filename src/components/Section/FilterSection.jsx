@@ -3,6 +3,7 @@ import { Selects } from './Selects';
 import { useFectDataFilter, useFetchProperty } from '../../hooks/useFectProperty';
 import { Image } from '../GeneralComponent';
 import { formatPrice } from '../../services/functionService';
+import '../../assets/styles/property.css';
  
 
 export const FilterSection = ({ filters, setFilters }) =>  {
@@ -29,55 +30,42 @@ export const FilterSection = ({ filters, setFilters }) =>  {
                             location: [ { name: "Location", value: "All" }, ...(dataFilter?.locations || [])],
                             type: [ { name: "Property Type", value: "All" }, ...(dataFilter?.types || []) ]}
     return (
-      <div className="sidebar-left bg-white p-3 py-4 mt-3 sidebar">
-        <div className="widget filter-widget search p-3 rounded shadow-sm">
-            <h3 className="widget-title">Advanced Search Filter</h3>
+      <aside className="filter-sidebar">
+            {/* Search Widget */}
+            <div className="card-widget">
+                <h3 className="widget-title">Search Properties</h3>
+                <form className="filter-form" onSubmit={(e) => e.preventDefault()}>
+                    <input type="text" name="search_text" className="form-input" placeholder="Keyword (e.g. Modern Villa)" value={filters.search_text} onChange={handleChange} />
+                    
+                    <div className="select-grid">
+                        <Selects name="purpose" value={filters.purpose} options={selectOptions.purpose} onChange={handleChange} />
+                        <Selects name="type_id" value={filters.type_id} options={selectOptions.type} onChange={handleChange} />
+                    </div>
+                    
+                    <Selects name="location_id" value={filters.location_id} options={selectOptions.location} onChange={handleChange} />
+                    <Selects name="bedrooms" value={filters.bedrooms} options={selectOptions.bedrooms} onChange={handleChange} />
+                    
+                    <input type="text" name="price_range" className="form-input" placeholder="Price Range" value={filters.price_range} onChange={handleChange} />
+                    
+                    <button className="btn-search">Search Now</button>
+                </form>
+            </div>
 
-        <form onSubmit={submitSearch} className='vfx_hero_form_area vfx2 filter' >
-          <input type="text" name="search_text" className="form-control mb-3" placeholder="Search by title" value={filters.search_text} onChange={handleChange} />
-
-          <Selects name="purpose" value={filters.purpose} options={selectOptions.purpose} onChange={handleChange} />
-
-          <Selects name="type_id" value={filters.type_id} options={selectOptions.type} onChange={handleChange} />
-
-          <Selects name="location_id" value={filters.location_id} options={selectOptions.location} onChange={handleChange} />
-
-          <Selects name="bedrooms" value={filters.bedrooms} options={selectOptions.bedrooms} onChange={handleChange} />
-
-          <Selects name="furnishing" value={filters.furnishing} options={selectOptions.furnishing} onChange={handleChange} />
-
-          <Selects name="verified" value={filters.verified} options={selectOptions.verified} onChange={handleChange} />
-
-          {/* Price range text (you can replace later with real slider) */}
-          <input type="text" name="price_range" className="form-control mb-4" placeholder="Price Range" value={filters.price_range} onChange={handleChange} />
-
-          <button className="btn btn-primary w-100">Search</button>
-        </form>
-      </div>
-
-      {/* Latest Properties */}
-      <div className="widget recent p-3 rounded shadow-sm mt-4">
-        <h3 className="widget-title">Latest Property</h3>
-          {latest.map((latest) => (
-              <article key={latest.id} className="property-card">
-                  <div className="property-image-container">
-                          <Image type_image={latest.image ? `storage/`+latest.image : null }  defaultImage={'http://127.0.0.1:8000/upload/placeholder_img.jpg'} type_name={latest.title} style={{width: "45%", height: "auto",}} className={"property-image rounded"} />
-                      
-                      <div className="property-details ms-3">
-                          <span className={`property-category-tag `}>
-                              {latest.category}
-                          </span>
-                          <h3 className="property-title">{latest.title}</h3>
-                          <p className="property-location">
-                              <i className="fas fa-map-marker-alt"></i> {latest.location || latest.address}
-                          </p>
-                          <div className="property-price-tag">{formatPrice(latest.price)}</div>
-                      </div>
-                  </div>
-                  <hr className="card-separator" />
-              </article>
-          ))}
-      </div>
-    </div>
+            {/* Latest Properties Widget */}
+            <div className="card-widget">
+                <h3 className="widget-title">Recently Listed</h3>
+                <div className="latest-list">
+                    {latest.map((item) => (
+                        <article key={item.id} className="latest-item property-image-container">
+                            <Image type_image={item.image ? `storage/${item.image}` : null} defaultImage={'http://127.0.0.1:8000/upload/placeholder_img.jpg'} type_name={item.title} style={{width: "45%", height: "auto",}} className={'property-image rounded'}/>
+                            <div className='mt-2'>
+                                <h4>{item.title}</h4>
+                                <p className="price">{formatPrice(item.price)}</p>
+                            </div>
+                        </article>
+                    ))}
+                </div>
+            </div>
+        </aside>
     )
 }

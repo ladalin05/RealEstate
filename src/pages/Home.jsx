@@ -22,47 +22,40 @@ const HomePage = ({properties, categories}) => {
 
   return (
     <div className="homepage-content">
-      <div>
-        <HeroSection />
-      </div>
+      <HeroSection />
 
-      {/* Property Category Section */}
-      <div className="vfx-team-section-area bg-light py-5">
+      {/* Categories: Using a slider or centered grid */}
+      <section className="py-5 bg-white shadow-sm position-relative" style={{ marginTop: '-40px', zIndex: 10, borderRadius: '40px 40px 0 0' }}>
         <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <SectionHeader title="Property Type" viewAllLink="/types" viewAllTitle="View All" />
-            </div>
-            <div className="col-12">
-              <div className="vfx-team-wrapper d-flex justify-content-center custom-scrollbar">
-                { loading ? (
-                  <div className="spinner-border text-primary "  style={{ width: '3rem', height: '3rem', borderWidth: '0.35rem' }}  role="status" >
-                    <span className="visually-hidden">Loading...</span>
-                  </div>
-                ) : !error && category && category.length > 0 ? (
-                  category.map((type_data) => (
-                    <CategoryItem key={type_data.id} type={type_data} />
-                  ))
-                ) : (
-                  !loading && !error && <p>No categories found.</p>
-                )}
-              </div>
-            </div>
+          <div className="d-flex justify-content-between align-items-center mb-4">
+             <h3 className="fw-bold mb-0">Browse by Category</h3>
+             <a href="/types" className="btn btn-outline-primary btn-sm rounded-pill px-4">See All</a>
+          </div>
+          <div className="vfx-team-wrapper d-flex justify-content-around overflow-auto pb-3 gap-4">
+              {category?.map(t => <CategoryItem key={t.id} type={t} />)}
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Trending Now Section */}
-      {trending && trending.length > 0 && (
-        <PropertyListSection title="Trending Now" list={trendingList} viewAllLink="/popular"
-          sectionClass="trending-property-section bg-light" paginationClass="vfx-popular-property-pagination" />
-      )}
-      
-      {/* Latest Property Section */}
-      <PropertyListSection title="Latest Property" list={properties} viewAllLink="/latest"
-          sectionClass="latest-property-section" paginationClass="vfx-latest-property-pagination"
-      />
+      {/* Trending Now */}
+      <section className="section-padding bg-light">
+         <PropertyListSection 
+            title="Trending Now 🔥" 
+            list={trendingList} 
+            viewAllLink="/popular"
+            sectionClass="trending-section" 
+         />
+      </section>
 
+      {/* Latest Properties */}
+      <section className="section-padding bg-white">
+         <PropertyListSection 
+            title="Newly Listed" 
+            list={properties} 
+            viewAllLink="/latest"
+            sectionClass="latest-section" 
+         />
+      </section>
     </div>
   );
 };

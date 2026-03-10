@@ -32,17 +32,17 @@ const PropertyListPage = ({properties}) => {
 
 
     return (
-        <div className="homepage-content">
+        <div className="container-fluid property-page-container">
             <BannerSection sectionImage={sectionImage} section_title="Property" currentPage="Property" />
-            <div className="row justify-content-center">
-                <div className="col-3  py-5">
+            <div className="row">
+                {/* Sidebar (4 cols) */}
+                <div className="col-lg-4 col-md-12 mb-4">
                     <FilterSection filters={filters} setFilters={setFilters} />
                 </div>
-                <div className="col-7">
-                    <PropertySection title="Property List" list={propertyData} propLoading={propLoading}
-                    sectionClass="latest-property-section" paginationClass="vfx-latest-property-pagination" />
+                {/* Content (8 cols) */}
+                <div className="col-lg-8 col-md-12">
+                    <PropertySection list={propertyData} propLoading={propLoading} />
                 </div>
-                
             </div>
         </div>
     );

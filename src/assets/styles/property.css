@@ -219,3 +219,125 @@
     margin-right: 5px;
 }
 
+.property-card {
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.property-card:hover {
+  transform: translateY(-5px);
+}
+
+.property-img {
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Card container styling */
+.vfx-trending-places .property {
+    border-radius: 12px;
+    background: #ffffff !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f0f0f0;
+}
+
+/* Refined Dropdown */
+.nice-select {
+    border-radius: 8px !important;
+    border: 1px solid #dee2e6 !important;
+    padding: 0.5rem 1rem !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nice-select:hover {
+    border-color: #0d6efd !important;
+}
+
+/* Filter icons */
+.item-filter-list a {
+    color: #6c757d;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.item-filter-list a:hover {
+    color: #0d6efd;
+}
+
+/* Loading spinner centering */
+.spinner-container {
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Sidebar Container */
+.filter-sidebar { display: flex; flex-direction: column; gap: 20px; }
+
+.card-widget {
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.widget-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 20px; color: #2d3436; }
+
+/* Form Elements */
+.form-input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #dfe6e9;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+.form-input:focus { border-color: #0984e3; outline: none; }
+
+.btn-search {
+    width: 100%;
+    padding: 12px;
+    background: #0984e3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.latest-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Space between items */
+}
+
+.latest-item {
+  display: flex;
+  align-items: start; /* Vertically centers text with image */
+  gap: 1rem;
+  padding: 0.75rem;
+  background: #ffffff;
+  border-radius: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.latest-item:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.latest-item h4 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.latest-item .price {
+  font-weight: 700;
+  color: #2563eb; /* Use a nice brand color */
+  margin: 0;
+}

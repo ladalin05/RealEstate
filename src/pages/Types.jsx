@@ -10,32 +10,37 @@ const TypesPage = ({categories}) => {
 
     const {category, loading, error} = categories;
 
+    // Suggested refinement for your return statement
     return (
-        <div className="homepage-content">
+        <div className="container-fluid">
             <BannerSection sectionImage={sectionImage} section_title="Types" currentPage="Types" />
-            <div className="vfx-team-section-area bg-light py-5">
+            
+            <section className="category-section py-5 py-md-6 bg-white">
                 <div className="container">
-                <div className="row">
-                    <div className="col-12">
-                        <div className="row justify-content-center">
-                            { loading ? (
-                                <div className="spinner-border text-primary "  style={{ width: '3rem', height: '3rem', borderWidth: '0.35rem' }}  role="status" >
-                                    <span className="visually-hidden">Loading...</span>
+                    {/* Add a header section for context */}
+                    <div className="text-center mb-5">
+                        <h2 className="display-6 fw-bold text-dark">Explore Categories</h2>
+                        <p className="text-muted">Find exactly what you're looking for.</p>
+                    </div>
+
+                    <div className="row g-4"> {/* Use gap utilities for better spacing */}
+                        {loading ? (
+                            <div className="d-flex justify-content-center p-5">
+                                <div className="spinner-border text-primary" role="status" />
+                            </div>
+                        ) : category?.length > 0 ? (
+                            category.map((type_data) => (
+                                <div key={type_data.id} className="col-lg-3 col-md-4 col-sm-6">
+                                    {/* Ensure CategoryItem has a CSS class for hover effects */}
+                                    <CategoryItem type={type_data} />
                                 </div>
-                            ) : !error && category && category.length > 0 ? (
-                                category.map((type_data) => (
-                                    <div key={type_data.id} className="col-lg-3 col-md-6 col-sm-12" >
-                                        <CategoryItem key={type_data.id} type={type_data} />
-                                    </div>
-                                ))
-                            ) : (
-                                !loading && !error && <p>No categories found.</p>
-                            )}
-                        </div>
+                            ))
+                        ) : (
+                            <div className="text-center text-muted">No categories available.</div>
+                        )}
                     </div>
                 </div>
-                </div>
-            </div>
+            </section>
         </div>
     );
 };

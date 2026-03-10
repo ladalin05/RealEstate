@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BannerSection } from "../components/Section/BannerSection";
 import sectionImage from '../assets/images/breadcrumb.jpg';
 import { ImageTextSection } from "../components/Section/ImageTextSection";
-import '../assets/styles/global.css'
+import '../assets/styles/about_us.css'
 
 // --- Main Component ---
 
@@ -19,31 +19,24 @@ const AboutUsPage = () => {
         };
 
     return (
-        <div className="homepage-content">
+        <div className="container-fluid">
             <BannerSection sectionImage={sectionImage} section_title="About Us" currentPage="About Us" />
+            
             <div className="about-page bg-white">
                 <ImageTextSection content={data.content1} image={data.image1} reverse={false} bgColor="white" />
-            
-                <ImageTextSection content={data.content2} image={data.image2} reverse={true}  bgColor="cb"/>
+                <ImageTextSection content={data.content2} image={data.image2} reverse={true} bgColor="cb" />
 
-                <div className="container-fluid">
-                    <div className="row">
-                        <div className="col-lg-12">
-                            <div className="call-to-act text-center">
-                                <div className="call-to-act-head">
-                                    <h3 className="mb-2 fw-bold">
-                                        List Your Properties on {'VFX Realty'}!
-                                    </h3>
-                                </div>
-                                <a  href="/signup" 
-                                    className="btn btn-lg btn-warning text-dark px-5" 
-                                    title="Join Now" >
-                                    Join Now
-                                </a>
+                {/* Call to Action Section */}
+                <section className="py-5 bg-light">
+                    <div className="container">
+                        <div className="row justify-content-center">
+                            <div className="col-lg-8 text-center">
+                                <h3 className="mb-4 fw-bold">List Your Properties on {data.siteName}!</h3>
+                                <a href="/signup" className="btn btn-warning btn-lg px-5">Join Now</a>
                             </div>
                         </div>
                     </div>
-                </div>
+                </section>
             </div>
         </div>
     );
