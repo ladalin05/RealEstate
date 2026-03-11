@@ -1,0 +1,66 @@
+/* Container */
+.profile-dropdown-container {
+    position: relative;
+}
+
+/* Toggle Button */
+.btn-profile-toggle {
+    background: transparent;
+    border: 1px solid #e0e0e0;
+    padding: 4px 12px 4px 4px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.btn-profile-toggle:hover {
+    background: #f8f9fa;
+    border-color: #ced4da;
+}
+
+.profile-avatar {
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+}
+
+/* Dropdown Menu Styling */
+.dropdown-menu {
+    display: block; /* Controlled by React state */
+    margin-top: 10px;
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    min-width: 200px;
+    padding: 8px;opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.4s ease-out;
+}
+
+.dropdown-item {
+    padding: 10px 16px;
+    border-radius: 8px;
+    color: #4a4a4a;
+    transition: background 0.2s;
+}
+
+.dropdown-item:hover {
+    background-color: #f1f3f5;
+    color: #000;
+}
+
+/* Icon Animations */
+.transition-icon {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}

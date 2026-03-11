@@ -9,7 +9,6 @@ const CategoryItem = ({ type }) => {
 
   
   return (
-    <div className="p-2 mt-3">
       <div className="category-item-v2 text-center p-3">
         <a href={`/types/${type_slug}/${type.id}`} className="text-decoration-none group">
           <div className="cat-circle shadow-sm mb-4 mx-auto">
@@ -18,7 +17,6 @@ const CategoryItem = ({ type }) => {
           <h6 className="text-dark fw-bold mb-0">{type_name}</h6>
         </a>
       </div>
-    </div>
   );
 };
 

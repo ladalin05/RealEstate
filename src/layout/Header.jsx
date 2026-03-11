@@ -12,7 +12,7 @@ const Header = ({ navigationLinks, isLoggedIn }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light custom-nav">
       <div className="container">
-        <Link to="/" className="navbar-brand">
+        <Link to="/home" className="navbar-brand">
           <Image type_image="assets/images/default/site_logo.png" type_name="Icon" className={"logo-img"} />
         </Link>
 

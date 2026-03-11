@@ -1,15 +1,15 @@
-import React, { useContext, useState } from 'react';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { logoutUser } from "../../core/api/authApi";
-import { Image } from '../GeneralComponent';
-
+import '../../assets/styles/profile.css';
 
 export const ProfileDropdown = ({ user }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
-  const defaultUserImage = 'https://img.freepik.com/premium-vector/user-icon-icon_1076610-59410.jpg';
   const navigate = useNavigate();
-  const user_image = user?.image != null ? user.image.replace("http://127.0.0.1:8000/storage", '') : null;
+  const defaultUserImage = 'https://img.freepik.com/premium-vector/user-icon-icon_1076610-59410.jpg';
+
+  const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
+
   const handleLogout = async () => {
     await logoutUser();
     localStorage.removeItem("user");
@@ -17,38 +17,39 @@ export const ProfileDropdown = ({ user }) => {
     navigate("/home");
     window.location.reload();
   };
+
   return (
-    <div className="dropdown" style={{ position: 'relative' }}>
-      <button className="btn btn-link p-3 text-dark d-flex align-items-center dropdown-toggle" type="button" id="userDropdown" 
-        aria-haspopup="true" aria-expanded={isDropdownOpen} onClick={toggleDropdown} style={{ textDecoration: 'none' }}
+    <div className="profile-dropdown-container">
+      <button 
+        className="btn btn-profile-toggle d-flex align-items-center" 
+        onClick={toggleDropdown}
       >
-        <a href='#' className="property-author d-flex align-items-center justify-content-center text-dark text-decoration-none" title="user profile"> 
-          <img  src={user_image ? user.image : defaultUserImage} alt="user_image" 
-                className="rounded-circle m-auto border border-secondary" style={{ width: '30px', height: '30px', objectFit: 'cover' }} />
-          <span className="d-none d-md-inline ms-3" style={{ fontSize: '18px', color:'#7b7977' }}>
-            {user?.name || 'User'}
-          </span>
-        </a>
-        <i className={`fas fa-drop-down ms-2 ${isDropdownOpen ? 'open' : ''}`} style={{ color:'#7b7977' }}></i>
+        <img 
+          src={user?.image || defaultUserImage} 
+          alt="Profile" 
+          className="rounded-circle profile-avatar" 
+        />
+        <span className="user-name d-none d-md-inline ms-2">{user?.name || 'User'}</span>
+        <i className={`fas fa-chevron-down ms-2 transition-icon ${isDropdownOpen ? 'rotate' : ''}`}></i>
       </button>
 
-      <div className={`dropdown-menu dropdown-menu-right user-dropdown-custom ${isDropdownOpen ? 'show' : ''}`}
-        aria-labelledby="userDropdown" >
-          <Link className="dropdown-item d-flex align-items-center" to="/profile" onClick={() => setIsDropdownOpen(false)} >
-              👤 View Profile
-          </Link>
-          <Link className="dropdown-item d-flex align-items-center" to="/settings" onClick={() => setIsDropdownOpen(false)} >
-              ⚙️ Account Settings
-          </Link>
-          <Link className="dropdown-item d-flex align-items-center" to="/favourites" onClick={() => setIsDropdownOpen(false)} >
-              ❤️ Favourite Properties
-          </Link>
-          <Link className="dropdown-item d-flex align-items-center">
-            <button  style={{ color: '#dc3545', background: 'none', border: 'none', padding: 0, textAlign: 'left', }}
-                onClick={handleLogout}>
-              🚪 Logout
-            </button>
-          </Link>
+      <div className={`dropdown-menu ${isDropdownOpen ? 'show' : ''}`}>
+        <div className="dropdown-header px-3 py-2">
+            <small className="text-muted">Account</small>
+        </div>
+        <Link className="dropdown-item" to="/profile" onClick={() => setIsDropdownOpen(false)}>
+            <i className="fas fa-user me-2"></i> View Profile
+        </Link>
+        <Link className="dropdown-item" to="/settings" onClick={() => setIsDropdownOpen(false)}>
+            <i className="fas fa-cog me-2"></i> Account Settings
+        </Link>
+        <Link className="dropdown-item" to="/favourites" onClick={() => setIsDropdownOpen(false)}>
+            <i className="fas fa-heart me-2"></i> Favourites
+        </Link>
+        <div className="dropdown-divider"></div>
+        <button className="dropdown-item text-danger" onClick={handleLogout}>
+            <i className="fas fa-sign-out-alt me-2"></i> Logout
+        </button>
       </div>
     </div>
   );

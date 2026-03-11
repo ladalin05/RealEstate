@@ -19,7 +19,7 @@ const PropertyDetails = () => {
     const user = JSON.parse(localStorage.getItem("user"));
     const navigate = useNavigate();
 
-    const user_image = user?.image.replace("http://127.0.0.1:8000/storage", '');
+    const user_image = user?.avatar.replace("http://127.0.0.1:8000/storage", '');
 
 
     const handleReportSubmit = (e) => {
@@ -194,7 +194,7 @@ const PropertyDetails = () => {
                         <div className="col-xl-4 col-lg-12">
                             <div className="card p-3 d-flex mb-4 flex-row align-items-center shadow-sm">
                                 <div className="user-avatar-placeholder me-3">
-                                    <img  src={user_image ? user.image : 'https://img.freepik.com/premium-vector/user-icon-icon_1076610-59410.jpg'} alt="user_image" className="rounded-circle m-auto w-100 border border-secondary" />
+                                    <Image type_image={user_image ? user.avatar : null} efaultImage={'https://img.freepik.com/premium-vector/user-icon-icon_1076610-59410.jpg'} className={"rounded-circle m-auto w-100 border border-secondary"} />
                                 </div>
                                 <div className="user-name-text">
                                     <h5 className="mb-0">Viavi Webtech</h5>
