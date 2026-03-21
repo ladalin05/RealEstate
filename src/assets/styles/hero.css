@@ -43,3 +43,24 @@
     /* Basic layout for the ad slot below the main content/hero */
     padding-bottom: 0;
 }
+
+.btn-thm {
+    background-color: #0dbcdf;
+    border: 1px solid #0dbcdf;
+    color: #fff;
+}
+
+.ud-btn {
+    font-weight: 600;
+    font-size: 15px;
+    font-style: normal;
+}
+
+.advance-search-icon {
+    border-radius: 50%;
+    display: block;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+}

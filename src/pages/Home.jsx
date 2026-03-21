@@ -1,6 +1,7 @@
 import React from 'react';
 import { SectionHeader } from '../components/Section/SectionHeader';
 import { PropertyListSection } from '../components/Section/PropertyListSection';
+import { PropertyOneSection } from '../components/Section/PropertyOneSection';
 import CategoryItem from '../components/Card/CategoryItem';
 import HeroSection from '../components/Section/HeroSection';
 import '../assets/styles/global.css';
@@ -24,22 +25,26 @@ const HomePage = ({properties, categories}) => {
     <div className="homepage-content">
       <HeroSection />
 
-      {/* Categories: Using a slider or centered grid */}
-      <section className="py-5 bg-white shadow-sm position-relative" style={{ marginTop: '-40px', zIndex: 10, borderRadius: '40px 40px 0 0' }}>
+      <section className="apartment-section py-4 pt-5 bg-white pb-5">
         <div className="container">
-          <div className="d-flex justify-content-between align-items-center mb-4">
-             <h3 className="fw-bold mb-0">Browse by Category</h3>
-             <a href="/types" className="btn btn-outline-primary btn-sm rounded-pill px-4">See All</a>
+          <div className="d-flex justify-content-between align-items-end mb-3">
+            <div>
+              <h2 className="section-title">Explore Apartment Types</h2>
+              <p className="section-subtitle">Get some inspirations from 1800+ skills</p>
+            </div>
           </div>
-          <div className="vfx-team-wrapper d-flex justify-content-around overflow-auto pb-3 gap-4">
+          {/* Categories Grid */}
+          <div className="category-body">
+            <div className="category-grid">
               {category?.map(t => <CategoryItem key={t.id} type={t} />)}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Trending Now */}
       <section className="section-padding bg-light">
-         <PropertyListSection 
+         <PropertyOneSection 
             title="Trending Now 🔥" 
             list={trendingList} 
             viewAllLink="/popular"

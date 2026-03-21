@@ -14,7 +14,6 @@ const ContactUsPage = ({ contact_info }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Form Submitted:", formData);
         // Add your API logic here
     }
 

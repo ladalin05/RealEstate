@@ -4,6 +4,7 @@ import { useFetchProperty} from "../../hooks/useFectProperty";
 import { BannerSection } from "../../components/Section/BannerSection";
 import { FilterSection } from "../../components/Section/FilterSection";
 import sectionImage from '../../assets/images/breadcrumb.jpg';
+import { useLocation } from "react-router-dom";
 
 // --- Main Component ---
 
@@ -11,25 +12,46 @@ const PropertyListPage = ({properties}) => {
     const { property, propLoading, properror } = properties;
     const [propertyData, setPropertyData] = useState([]);
     const [filters, setFilters] = useState({ search_text: "", purpose: "", type_id: "", location_id: "", bedrooms: "", bathrooms: "", furnishing: "", verified: "",  price_range: "",  });
-    
-    useEffect(() => {
-        if (property) {
-            setPropertyData(property);
-        }
-    }, [property]);
+    const location = useLocation();
+    const { filtterData } = location.state || {};
 
-    useEffect(() => {
-        Object.entries(filters).forEach(([key, value]) => {
-            let properties = property || [];
-            if(value !== ""){
-                if(value !== "All"){
-                    properties = properties.filter((prop) => (typeof prop[key] === "string" ? (prop[key] || "").toLowerCase() : (prop[key] || null)) === (typeof value === "string" ? (value || "").toLowerCase() :  (value || null)) )
+     useEffect(() => {
+        if (!property) return;
+        const combinedFilters = {
+            ...filters,
+            ...filtterData
+        };
+        const cleanFilters = Object.fromEntries(
+            Object.entries(combinedFilters).filter(
+                ([_, value]) =>
+                    value !== "" &&
+                    value !== null &&
+                    value !== undefined &&
+                    value !== "All"
+            )
+        );
+        let filtered = [...property];
+        Object.entries(cleanFilters).forEach(([key, value]) => {
+            filtered = filtered.filter((prop) => {
+                const propValue = prop[key];
+                if (typeof propValue === "string") {
+                    return (propValue || "")
+                        .toLowerCase()
+                        .includes((value || "").toLowerCase());
                 }
-                setPropertyData(properties);
-            }
+                if (typeof propValue === "number") {
+                    return propValue === Number(value);
+                }
+                if (typeof propValue === "boolean") {
+                    return propValue === Boolean(value);
+                }
+                return propValue === value;
+            });
         });
-    }, [filters]);
 
+        setPropertyData(filtered);
+
+    }, [property, filters, filtterData]);
 
     return (
         <div className="container-fluid property-page-container">

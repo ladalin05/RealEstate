@@ -5,18 +5,22 @@ import { formatPrice, handleFavourit, showProperty } from '../../services/functi
 
 const PropertyCard = ({ property }) => {
   const navigate = useNavigate();
-  const { id, title, image, purpose, verified, type_name, price, address, user_name, is_favourite, user_image } = property;
+  const { id, title, image, purpose, verified, type_name, price, address, user_name_en, is_favourite, user_image } = property;
   const [isFavourite, setIsFavourite] = useState(is_favourite);
 
+  const showProperty = async (propertyId) => {
+      navigate("/property-detail", { state: { propertyId: propertyId } });
+  }
+  
   return (
-    <div className="card h-100 border-0 shadow-sm property-card">
+    <div className="card border-0 shadow-sm property-card">
       {/* Image Section */}
       <div className="position-relative">
-        <a className="vfx-property-img" title={title}  onClick={() => showProperty(id, navigate)} >
+        <a className="vfx-property-img" title={title}  onClick={() => showProperty(id)} >
           <Image type_image={image ? `storage/`+image : null} type_name={"Property"} defaultImage={"http://127.0.0.1:8000/upload/placeholder_img.jpg"} className={"card-img-top property-img"}  />
         </a>
         {/* Purpose Badge */}
-        <span className="badge bg-primary position-absolute top-0 start-0 m-3">{purpose}</span>
+        <span className="badge bg-primary position-absolute text-capitalize top-0 start-0 m-3">{purpose}</span>
         {/* Favorite Icon */}
         <button 
           className="border-0 rounded-circle bg-light d-flex justify-content-center align-items-center position-absolute top-0 end-0 m-3"
@@ -25,24 +29,30 @@ const PropertyCard = ({ property }) => {
         >
           <i className={`fa-${isFavourite ? 'solid text-danger' : 'regular'} fa-heart`}></i>
         </button>
+        <span className="rounded py-1 px-3 border-0 bg-light position-absolute bottom-0 start-0 m-3 fw-bold" style={{ letterSpacing: '1px'}} >{formatPrice(price)}</span>
       </div>
 
       <div className="card-body" style={{width: '100%'}}>
-        <div className="d-flex justify-content-between align-items-center mb-2">
-            <span className="text-muted small">{type_name}</span>
-            {verified && <span className="badge bg-success-subtle text-success small">Verified</span>}
-        </div>
         
-        <h5 className="card-title text-truncate">{title}</h5>
-        <p className="text-muted small"><i className="bi bi-geo-alt me-1"></i> {address}</p>
-        <h6 className="text-primary fw-bold">{formatPrice(price)}</h6>
+        <div className="d-flex justify-content-between align-items-center ">
+            <h5 className="card-title text-truncate">{title}</h5>
+            {verified ? <span className="badge bg-success-subtle text-success small">Verified</span> : <span className="badge bg-warning-subtle text-warning small">Pending</span>}
+        </div>
+        <p className="text-muted small">{type_name}</p>
+        <p className="text-muted small"><i className="bi bi-geo-alt me-1"></i> {address || "No Address"}</p>
+        <div className="property-features d-flex gap-3 mt-3 ms-1">
+            <span><i className="fa-solid fa-bed"></i> 3 Bed</span>
+            <span><i className="fa-solid fa-shower-down"></i> 2 Bath</span>
+            <span><i className="fa-solid fa-expand"></i> 1,200 sqft</span>
+        </div>
       </div>
+      {/* Content */}
 
-      <div className="card-footer bg-white border-top-0 pb-3">
+      <div className="card-footer bg-white border-top-0 mt-0 ">
         <div className="d-flex align-items-center">
           <img src={user_image ? `http://127.0.0.1:8000/${user_image}` : 'https://img.freepik.com/premium-vector/user-icon-icon_1076610-59410.jpg'} 
-               alt={user_name} className="rounded-circle me-2" width="30" height="30" />
-          <span className="small text-muted">{user_name}</span>
+               alt={user_name_en} className="rounded-circle me-2" width="30" height="30" />
+          <span className="small text-muted">{user_name_en || "No User"}</span>
         </div>
       </div>
     </div>

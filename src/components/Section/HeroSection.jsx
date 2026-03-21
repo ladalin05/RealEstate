@@ -1,11 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../assets/styles/section.css';
 import BACKGROUND_IMAGE_URL from '../../assets/images/slider1.jpg'
+import { useNavigate } from 'react-router-dom';
+import { Selects } from './Selects';
+import { useFectDataFilter } from '../../hooks/useFectProperty';
 
 const HeroSection = () => {
+
+  const navigate = useNavigate();
+  const [filters, setFilters] = useState({ search_text: "", purpose: "", type_id: "", location_id: "", bedrooms: "", bathrooms: "", furnishing: "", verified: "",  price_range: "",  });
+  const { dataFilter, loading, error} = useFectDataFilter();
+
+  const handleChange = (e) => {
+      setFilters(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const selectOptions = {
+    categories: [
+      { name: "Property Type", value: "All" }, ...(dataFilter?.types || [])
+    ]
+  }
+
+  const handleSubmit = (e) => {
+      navigate("/properties", { state: { filtterData: filters } });
+  }
+
   return (
-    <div className="hero-v3 position-relative d-flex align-items-center" 
-         style={{ height: '85vh', backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.6)), url(${BACKGROUND_IMAGE_URL})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+    <div className="hero-v3 d-flex align-items-center" 
+         style={{ height: '120vh', backgroundImage: `url(${BACKGROUND_IMAGE_URL})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
       
       <div className="container">
         <div className="row justify-content-center">
@@ -17,11 +39,17 @@ const HeroSection = () => {
             <p className="lead text-white-50 mb-5">Explore over 2,000+ luxury properties with verified listings.</p>
             
             {/* Modern Search Bar */}
-            <div className="search-glass p-3 rounded-4 shadow-lg mx-auto" style={{ maxWidth: '800px', background: 'rgba(255, 255, 255, 0.15)', backdropFilter: 'blur(10px)', border: '1px solid rgba(255, 255, 255, 0.2)' }}>
-              <div className="row g-2">
-                <div className="col-md-5"><input type="text" className="form-control form-control-lg border-0 bg-white" placeholder="Location..." /></div>
-                <div className="col-md-4"><select className="form-select form-select-lg border-0 bg-white"><option>Property Type</option></select></div>
-                <div className="col-md-3"><button className="btn btn-primary w-100 h-100">Search</button></div>
+            <div className="search-glass p-3 py-1 rounded-4 shadow-lg mx-auto" style={{ maxWidth: '800px', background: 'rgba(255, 255, 255, 0.15)', backdropFilter: 'blur(10px)', border: '1px solid rgba(255, 255, 255, 0.2)' }}>
+              <div className="row d-flex align-items-center g-2">
+                <div className="col-md-6">
+                  <input type="text" className="form-control border-0 bg-white" style={{height: 'calc(1.5em + 1rem + 2px)'}} placeholder="Location..." />
+                  </div>
+                <div className="col-md-5 mt-4 align-items-center ms-1">
+                  <Selects name="type_id" value={filters.type_id} options={selectOptions.categories} onChange={handleChange} />
+                </div>
+                <button type="button" onClick={() => handleSubmit()} className="advance-search-icon ud-btn btn-thm ms-2">
+                  <i className="fa-regular fa-magnifying-glass"></i>
+                </button>
               </div>
             </div>
           </div>

@@ -9,14 +9,13 @@ const CategoryItem = ({ type }) => {
 
   
   return (
-      <div className="category-item-v2 text-center p-3">
-        <a href={`/types/${type_slug}/${type.id}`} className="text-decoration-none group">
-          <div className="cat-circle shadow-sm mb-4 mx-auto">
-            <img src={`http://127.0.0.1:8000/storage/${type_image}`} alt={type.type_name} /> 
+        <div key={type.id} className="category-card">
+          <div className="icon-circle shadow-sm">
+              <img src={`http://127.0.0.1:8000/storage/${type_image}`} width={'100%'} alt={type.type_name} /> 
           </div>
-          <h6 className="text-dark fw-bold mb-0">{type_name}</h6>
-        </a>
-      </div>
+            <h3 className="card-name">{type_name}</h3>
+            <p className="card-count"> Properties</p>
+        </div>
   );
 };
 

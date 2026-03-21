@@ -21,7 +21,7 @@ export const ProfileDropdown = ({ user }) => {
   return (
     <div className="profile-dropdown-container">
       <button 
-        className="btn btn-profile-toggle d-flex align-items-center" 
+        className="border-0 bg-transparent d-flex align-items-center nav-link" 
         onClick={toggleDropdown}
       >
         <img 

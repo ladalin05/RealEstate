@@ -3,7 +3,7 @@ import { SectionHeader } from './SectionHeader';
 import '../../assets/styles/global.css';
 import '../../assets/styles/property.css';
 // --- Reusable Property List Section ---
-export const PropertyListSection = ({ title, list, viewAllLink, sectionClass = '', paginationClass = '' }) => {
+export const PropertyOneSection = ({ title, list, viewAllLink, sectionClass = '', paginationClass = '' }) => {
   const { property, propLoading, properror } = list || [];
 
   return (
