@@ -13,14 +13,16 @@ import ContactUsPage from '../pages/ContactUs';
 import TypesPage from '../pages/Types';
 import AboutUsPage from '../pages/AboutUs';
 import { useFetchCategory } from '../hooks/useFetchHome';
-import { useFetchProperty } from '../hooks/useFectProperty';
+import { useFectPropertyByCity, useFetchProperty } from '../hooks/useFectProperty';
 import '../assets/styles/layout.css';
+import '../assets/styles/global.css';
 
 const Main = ({ menu }) => {
     const [isHeaderFixed, setIsHeaderFixed] = useState(false);
     const categories = useFetchCategory();
     const properties = useFetchProperty();
     const contact_info = useFetchContact();
+    const city_property = useFectPropertyByCity();
 
     useEffect(() => {
         const onScroll = () => {
@@ -30,7 +32,6 @@ const Main = ({ menu }) => {
         window.addEventListener('scroll', onScroll);
         return () => window.removeEventListener('scroll', onScroll);
     }, []);
-
     return (
         <div className="site-wrapper">
             <header className={`main-header ${isHeaderFixed ? 'header-sticky' : ''}`}>
@@ -39,8 +40,8 @@ const Main = ({ menu }) => {
             
             <main className="content-area min-vh-100">
                 <Routes>
-                    <Route path='/' element={<HomePage properties={properties} categories={categories} />} />
-                    <Route path='/home' element={<HomePage properties={properties} categories={categories} />} />
+                    <Route path='/' element={<HomePage properties={properties} categories={categories} city_property={city_property} />} />
+                    <Route path='/home' element={<HomePage properties={properties} categories={categories} city_property={city_property} />} />
                     <Route path='/properties' element={<PropertyListPage properties={properties} />} />
                     <Route path='/types' element={<TypesPage categories={categories} />} />
                     <Route path='/about-us' element={<AboutUsPage />} />

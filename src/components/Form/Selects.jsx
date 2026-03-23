@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 
-export const Selects = ({ name, value, options = [], onChange }) => {
+export const Selects = ({ name, value, options = [], onChange, align = "align-end" }) => {
     const [open, setOpen] = useState(false);
     const selectRef = useRef(null);
 
@@ -28,13 +28,13 @@ export const Selects = ({ name, value, options = [], onChange }) => {
     return (
         <div
             ref={selectRef}
-            className={`dropdown nice-select form-control mb-3 ${open ? "open" : ""}`}
+            className={`dropdown nice-select form-control ${align} ${open ? "open" : ""}`}
             onClick={() => setOpen(!open)}
         >
             <span className="current dropdown-toggle">{currentLabel}</span>
 
             {open && (
-                <ul className="list dropdown-menu show">
+                <ul className="list dropdown-menu w-100 show">
                     {options.map((option, index) => (
                         <li
                             key={index}

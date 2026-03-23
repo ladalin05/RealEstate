@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BannerSection } from "../components/Section/BannerSection";
 import sectionImage from '../assets/images/breadcrumb.jpg';
-import { ImageTextSection } from "../components/Section/ImageTextSection";
+import { ImageTextSection } from "../components/Section/AboutUs/ImageTextSection";
 import '../assets/styles/about_us.css'
 
 // --- Main Component ---

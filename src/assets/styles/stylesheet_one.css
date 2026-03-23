@@ -605,9 +605,7 @@ h1, h2, h3, h4, h5, h6 {
 .no-border {
 	border: none !important;
 }
-.section-padding {
-	padding: 100px 0;
-}
+
 .container-fluid {
 	padding: 0 30px;
 }
@@ -12922,9 +12920,6 @@ form.buy-add-section{
 	opacity:1;
 	z-index:9;
 	display:block !important;
-}
-.section-padding {
-    padding: 50px 0 40px;
 }
 .profile-sec-1 {
     background-color: #f5f6f7;

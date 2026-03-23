@@ -18,8 +18,6 @@ body {
   color: var(--text-main);
 }
 
-/* Section Spacing */
-.section-padding { padding: 100px 0; }
 
 /* Custom Button */
 .btn-primary {
@@ -39,7 +37,6 @@ body {
 
 .section-title {
   font-weight: 700;
-  color: #1a1a1a;
   margin-bottom: 5px;
 }
 
@@ -50,7 +47,7 @@ body {
 
 .category-body {
   width: 100%;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 .category-grid {
@@ -92,6 +89,12 @@ body {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
 }
 
+.category-card:hover .icon-circle {
+  color: #ffffff;
+  background-color: #303137;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
 .card-name {
   font-size: 1rem;
   font-weight: 600;
@@ -105,14 +108,55 @@ body {
   bottom: 14px;
 }
 
-@media (max-width: 1200px) {
-  .category-grid { grid-template-columns: repeat(4, 1fr); }
+.custom-card {
+  max-width: 350px;
+  background: transparent;
 }
 
-@media (max-width: 768px) {
-  .category-grid { grid-template-columns: repeat(2, 1fr); }
+/* Image styling with rounded corners */
+.main-image {
+  border-radius: 24px;
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
 }
 
-@media (max-width: 480px) {
-  .category-grid { grid-template-columns: 1fr; }
+/* Floating Date Badge */
+.date-badge {
+  position: absolute;
+  bottom: -20px;
+  right: 20px;
+  background-color: white;
+  padding: 12px 24px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 40px;
+}
+
+.date-badge .month {
+  color: #6c757d;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.date-badge .day {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #212529;
+  line-height: 1;
+}
+
+/* Typography refinements */
+.category {
+  font-size: 0.85rem;
+  letter-spacing: 0.3px;
+}
+
+.card-title {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #1a1a1a;
+  max-width: 90%;
 }

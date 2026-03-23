@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react';
-import { Selects } from './Selects';
+import { Selects } from '../Form/Selects';
 import { useFectDataFilter, useFetchProperty } from '../../hooks/useFectProperty';
 import { Image } from '../GeneralComponent';
 import { formatPrice } from '../../services/functionService';
@@ -36,15 +36,18 @@ export const FilterSection = ({ filters, setFilters }) =>  {
                 <h3 className="widget-title">Search Properties</h3>
                 <form className="filter-form" onSubmit={(e) => e.preventDefault()}>
                     <input type="text" name="search_text" className="form-input" placeholder="Keyword (e.g. Modern Villa)" value={filters.search_text} onChange={handleChange} />
-                    
-                    <div className="select-grid">
+                    <div className="mb-2">
                         <Selects name="purpose" value={filters.purpose} options={selectOptions.purpose} onChange={handleChange} />
+                    </div>
+                    <div className="mb-2">
                         <Selects name="type_id" value={filters.type_id} options={selectOptions.type} onChange={handleChange} />
                     </div>
-                    
-                    <Selects name="location_id" value={filters.location_id} options={selectOptions.location} onChange={handleChange} />
-                    <Selects name="bedrooms" value={filters.bedrooms} options={selectOptions.bedrooms} onChange={handleChange} />
-                    
+                    <div className="mb-2">
+                        <Selects name="location_id" value={filters.location_id} options={selectOptions.location} onChange={handleChange} />
+                    </div>
+                    <div className="mb-2">
+                        <Selects name="bedrooms" value={filters.bedrooms} options={selectOptions.bedrooms} onChange={handleChange} />
+                    </div>
                     <input type="text" name="price_range" className="form-input" placeholder="Price Range" value={filters.price_range} onChange={handleChange} />
                     
                     <button className="btn-search">Search Now</button>

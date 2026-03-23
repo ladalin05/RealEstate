@@ -1,5 +1,5 @@
-import React, { Component, useEffect, useState } from 'react'
-import { getFilterData, getProperty, getPropertyByID } from '../core/api/Property';
+import { useEffect, useState } from 'react'
+import { getFilterData, getProperty, getPropertyByCity, getPropertyByID } from '../core/api/Property';
 
 export const useFetchProperty = () => {
   const [property, setProperty] = useState(null);
@@ -69,5 +69,29 @@ export const useFectDataFilter = () => {
   }, []);
 
   return { dataFilter, loading, error };
+
+}
+
+export const useFectPropertyByCity = () => {
+  const [cities, setCities] = useState(null);
+  const [cityLoading, setCityLoading] = useState(true);
+  const [cityError, setCityError] = useState(null);
+
+  useEffect(() => {
+    const fetchPropertyByCity = async () => {
+      try {
+        const data = await getPropertyByCity();
+        setCities(data.properties);
+      } catch (error) {
+        setCityError(error.message);
+      } finally {
+        setCityLoading(false);
+      }
+    };
+
+    fetchPropertyByCity();
+  }, []);
+
+  return { cities, cityLoading, cityError };
 
 }

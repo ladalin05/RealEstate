@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import '../../assets/styles/section.css';
-import BACKGROUND_IMAGE_URL from '../../assets/images/slider1.jpg'
+import BACKGROUND_IMAGE_URL from '../../../assets/images/slider1.jpg'
 import { useNavigate } from 'react-router-dom';
-import { Selects } from './Selects';
-import { useFectDataFilter } from '../../hooks/useFectProperty';
+import { Selects } from '../../Form/Selects';
+import { useFectDataFilter } from '../../../hooks/useFectProperty';
+import '../../../assets/styles/section.css';
 
 const HeroSection = () => {
 
@@ -44,8 +44,8 @@ const HeroSection = () => {
                 <div className="col-md-6">
                   <input type="text" className="form-control border-0 bg-white" style={{height: 'calc(1.5em + 1rem + 2px)'}} placeholder="Location..." />
                   </div>
-                <div className="col-md-5 mt-4 align-items-center ms-1">
-                  <Selects name="type_id" value={filters.type_id} options={selectOptions.categories} onChange={handleChange} />
+                <div className="col-md-5 postition-relative">
+                  <Selects name="type_id" value={filters.type_id} options={selectOptions.categories} align={"align-center"} onChange={handleChange} />
                 </div>
                 <button type="button" onClick={() => handleSubmit()} className="advance-search-icon ud-btn btn-thm ms-2">
                   <i className="fa-regular fa-magnifying-glass"></i>

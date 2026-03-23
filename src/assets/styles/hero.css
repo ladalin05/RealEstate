@@ -64,3 +64,113 @@
     line-height: 45px;
     text-align: center;
 }
+
+.hero-container {
+  overflow-x: hidden;
+  background-color: #fff;
+}
+
+/* Custom Checkmarks */
+.check-icon {
+  background: #000;
+  color: #fff;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+/* Image Composition Layout */
+.hero-image-wrapper {
+  min-height: 550px;
+}
+
+.main-image-box {
+  width: 75%;
+  height: 480px;
+  margin-left: auto;
+  border-radius: 30px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.main-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Floating Architectural Image */
+.floating-image-box {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50%;
+  height: 320px;
+  border-radius: 30px;
+  border: 10px solid #fff; /* Creates the overlap gap */
+  overflow: hidden;
+  z-index: 2;
+}
+
+.floating-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes moveUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Agents Badge Card */
+.agents-badge {
+  position: absolute;
+  bottom: -20px;
+  right: 90px;
+  z-index: 3;
+  min-width: 220px;
+  border: 1px solid #f0f0f0;
+  animation: moveUpDown 3s ease-in-out infinite;
+}
+
+/* Avatar Group styling */
+.avatar-group img, .plus-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  margin-right: -12px; /* Overlaps avatars */
+  object-fit: cover;
+}
+
+.plus-circle {
+  background: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+  margin-right: 0;
+}
+
+/* Responsive tweaks */
+@media (max-width: 991px) {
+  .hero-image-wrapper {
+    min-height: 450px;
+    margin-top: 50px;
+  }
+  .main-image-box { width: 100%; }
+}

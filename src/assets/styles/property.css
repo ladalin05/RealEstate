@@ -341,3 +341,125 @@
   color: #2563eb; /* Use a nice brand color */
   margin: 0;
 }
+
+.feature-image {
+    position: relative;
+    width: 260px;
+    height: 361.66px;
+    margin-right: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.feature-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.feature-image::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background: linear-gradient(
+        to bottom, 
+        rgba(0, 0, 0, 0.4) 0%, 
+        rgba(0, 0, 0, 0.1) 100%
+    );
+    transition: background 0.4s ease;
+    z-index: 1;
+}
+
+.feature-prop {
+    margin-right: 20px;
+}
+
+.feature-prop:hover .feature-image::after {
+    background: linear-gradient(
+        to bottom, 
+        rgba(0, 0, 0, 0.8) 0%, 
+        rgba(0, 0, 0, 0.5) 100%
+    );
+}
+
+.feature-prop:hover .feature-image img {
+    transform: rotate(-2deg) scale(1.1);
+}
+
+.bottom-details {
+    position: absolute;
+    bottom: 0px;
+    left: 30px;
+    z-index: 12;
+    opacity: 0.1;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.feature-prop:hover .bottom-details {
+    opacity: 1;
+    transform: translateY(-30px);
+}
+
+.feature-prop .top-area {
+    position: absolute;
+    top: 30px;
+    padding-left: 30px;
+    z-index: 12;
+}
+
+.property-city, .property-count, .bottom-link {
+  transition: opacity 0.5s ease-in-out, content 0.5s ease-in-out;
+}
+
+.bottom-link {
+  display: block;
+}
+
+.arrow-center-position {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 9;
+}
+
+.arrow-center-position .swiper_button {
+    background-color: #fff;
+    box-shadow: 0 10px 35px rgba(5,16,54,.1);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    transition: all .3s ease;
+    line-height: 50px;
+}
+
+.button-for {
+    background-color: hsla(0,0%,100%,.07);
+    color: #fff;
+    border: 1px solid #181a20;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 17px;
+    margin-right: 10px;
+    border-radius: 6px;
+    transition: all .3s ease;
+}
+
+.button-active {
+    background-color: #fff;
+    color: #181a20;
+}
+
+.card-title-text {
+    width: 130px;
+}

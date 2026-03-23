@@ -1,6 +1,5 @@
-import PropertyCard from '../Card/PropertyCard';
-import { SectionHeader } from './SectionHeader';
-import '../../assets/styles/property.css';
+import PropertyCard from '../../Card/PropertyCard';
+import { SectionHeader } from '../SectionHeader';
 // --- Reusable Property List Section ---
 
 export const PropertySection = ({ title, list, viewAllLink, sectionClass = '', paginationClass = '', propLoading }) => {

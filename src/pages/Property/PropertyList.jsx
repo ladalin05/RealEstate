@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { PropertySection } from '../../components/Section/PropertySection';
-import { useFetchProperty} from "../../hooks/useFectProperty";
+import { PropertySection } from '../../components/Section/Property/PropertySection';
 import { BannerSection } from "../../components/Section/BannerSection";
 import { FilterSection } from "../../components/Section/FilterSection";
 import sectionImage from '../../assets/images/breadcrumb.jpg';
 import { useLocation } from "react-router-dom";
+import '../../assets/styles/property.css';
 
 // --- Main Component ---
 

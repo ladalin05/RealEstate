@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { BannerSection } from "../components/Section/BannerSection";
 import sectionImage from '../assets/images/breadcrumb.jpg';
-import { SectionHeader } from "../components/Section/SectionHeader";
 import CategoryItem from "../components/Card/CategoryItem";
 
 // --- Main Component ---

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getMenu, getCategory } from "../core/api/HomeAPI";
+import { getCategory } from "../core/api/HomeAPI";
 
 export const useFetchCategory = () => {
   const [category, setCategory] = useState(null);

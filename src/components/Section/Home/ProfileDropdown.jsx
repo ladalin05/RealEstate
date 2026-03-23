@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { logoutUser } from "../../core/api/authApi";
-import '../../assets/styles/profile.css';
+import { logoutUser } from "../../../core/api/authApi";
+import '../../../assets/styles/profile.css';
 
 export const ProfileDropdown = ({ user }) => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const navigate = useNavigate();
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const defaultUserImage = 'https://img.freepik.com/premium-vector/user-icon-icon_1076610-59410.jpg';
 
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
 
   const handleLogout = async () => {
     await logoutUser();
-    localStorage.removeItem("user");
-    localStorage.removeItem("token");
-    navigate("/home");
-    window.location.reload();
+      localStorage.removeItem("user");
+      localStorage.removeItem("token");
+      navigate("/home");
+      window.location.reload();
   };
 
   return (

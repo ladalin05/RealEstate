@@ -38,3 +38,12 @@ export const getFilterData = async () => {
         console.error('Error', error.message)
     }
 }
+
+export const getPropertyByCity = async () => {
+    try {
+        const respone = await API.get('/property/get-by-city')
+        return respone.data 
+    } catch (error) {
+        console.error('Error', error.message)
+    }
+}

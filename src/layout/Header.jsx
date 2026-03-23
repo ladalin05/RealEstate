@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { Image } from '../components/GeneralComponent';
-import { ProfileDropdown } from '../components/Section/ProfileDropdown';
-import '../assets/styles/layout.css';
+import { ProfileDropdown } from '../components/Section/Home/ProfileDropdown';
 
 const Header = ({ navigationLinks, isLoggedIn }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

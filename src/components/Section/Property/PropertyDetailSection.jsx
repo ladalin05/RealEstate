@@ -1,16 +1,13 @@
 import React, { useState, useEffect  } from 'react';
-import ReportModal from '../../components/Modals/ReportModal';
-import ShareModal from '../../components/Modals/ShareModal';
-import { Image } from '../../components/GeneralComponent';
-import { useLocation } from 'react-router-dom';
-import { formatPrice } from '../../services/functionService';
-import PropertyCard from '../../components/Card/PropertyCard';
-import '../../assets/styles/property_detail.css';
-import { useFetchPropById } from '../../hooks/useFectData';
+import { formatPrice } from '../../../services/functionService';
+import ReportModal from '../../Modals/ReportModal';
+import ShareModal from '../../Modals/ShareModal';
+import { Image } from '../../GeneralComponent';
+import PropertyCard from '../../Card/PropertyCard';
 
 // --------------------------------------------------------
 
-const PropDetail = ({properties, user}) => {
+const PropertyDetailSection = ({properties, user}) => {
     // --- JSX RENDER START ---
     const { gallery_images, latest_list, property, related_list } = properties;
     const user_image = user?.avatar.replace("http://127.0.0.1:8000/storage", '');
@@ -18,7 +15,6 @@ const PropDetail = ({properties, user}) => {
         e.preventDefault();
         alert('Report Submitted (Placeholder)');
     };
-    console.log(properties);
 
     return (
         <>
@@ -259,4 +255,4 @@ const PropDetail = ({properties, user}) => {
         </>
     );
 };
-export default PropDetail;
+export default PropertyDetailSection;

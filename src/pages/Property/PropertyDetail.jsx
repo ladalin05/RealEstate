@@ -1,13 +1,9 @@
 import React, { useState, useEffect  } from 'react';
-import ReportModal from '../../components/Modals/ReportModal';
-import ShareModal from '../../components/Modals/ShareModal';
-import { Image } from '../../components/GeneralComponent';
-import { useLocation } from 'react-router-dom';
-import { formatPrice } from '../../services/functionService';
-import PropertyCard from '../../components/Card/PropertyCard';
-import '../../assets/styles/property_detail.css';
+import PropertyDetailSection from '../../components/Section/Property/PropertyDetailSection';
 import { useFetchPropById } from '../../hooks/useFectData';
-import PropDetail from './PropDetail';
+import { useLocation } from 'react-router-dom';
+import '../../assets/styles/property_detail.css';
+import '../../assets/styles/property.css';
 
 // --------------------------------------------------------
 
@@ -31,7 +27,7 @@ const PropertyDetails = () => {
                     Error loading property: {properror}
                 </div>
             ) : property ? (
-                <PropDetail user={user} properties={property} />
+                <PropertyDetailSection user={user} properties={property} />
             ) : (
                 <div className="text-center py-5">
                     <p className="text-muted">No properties found matching your criteria.</p>
