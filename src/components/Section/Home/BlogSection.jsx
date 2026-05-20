@@ -46,7 +46,7 @@ export const BlogSection = () => {
         {/* Property Cards */}
         <div className="container d-flex justify-content-around mt-5" data-aos="fade-up" data-aos-delay="200" data-aos-offset="1000">
             {blogData.map((blog) => (
-                <div className="custom-card border-0">
+                <div key={blog.id} className="custom-card border-0">
                     {/* Image Section */}
                     <div className="position-relative">
                     <img 

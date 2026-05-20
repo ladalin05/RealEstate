@@ -4,6 +4,7 @@ import { useFectDataFilter, useFetchProperty } from '../../hooks/useFectProperty
 import { Image } from '../GeneralComponent';
 import { formatPrice } from '../../services/functionService';
 import '../../assets/styles/property.css';
+import config from '../../config';
  
 
 export const FilterSection = ({ filters, setFilters }) =>  {
@@ -11,7 +12,7 @@ export const FilterSection = ({ filters, setFilters }) =>  {
     const { property, propLoading, properror } = useFetchProperty();
     const { dataFilter, loading, error} = useFectDataFilter();
     const latest = property!=null ? property.slice(0, 5) : [];
-    const defaultPropertyImage = 'http://127.0.0.1:8000/upload/placeholder_img.jpg';
+    const defaultPropertyImage = `${config.app.url}/upload/placeholder_img.jpg`;
 
     const submitSearch = (e) => {
       e.preventDefault();
@@ -60,7 +61,7 @@ export const FilterSection = ({ filters, setFilters }) =>  {
                 <div className="latest-list">
                     {latest.map((item) => (
                         <article key={item.id} className="latest-item property-image-container">
-                            <Image type_image={item.image ? `storage/${item.image}` : null} defaultImage={'http://127.0.0.1:8000/upload/placeholder_img.jpg'} type_name={item.title} style={{width: "45%", height: "auto",}} className={'property-image rounded'}/>
+                            <Image type_image={item.image ? `storage/${item.image}` : null} defaultImage={`${config.app.url}/upload/placeholder_img.jpg`} type_name={item.title} style={{width: "45%", height: "auto",}} className={'property-image rounded'}/>
                             <div className='mt-2'>
                                 <h4>{item.title}</h4>
                                 <p className="price">{formatPrice(item.price)}</p>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { getContact, getMenu } from '../core/api/MainApi';
+import { getContact, getMenu, getSetting } from '../core/api/MainApi';
 
 export const useFetchMenu = () => {
     const [menu, setMenu] = useState(null);
@@ -46,4 +46,25 @@ export const useFetchContact = () => {
     return {contact, contactLoading, contactError};
 }
 
+export const useFetchSetting = () => {
+    const [setting, setSetting] = useState(null);
+    const [settingLoading, setSettingLoading] = useState(true);
+    const [settingError, setSettingError] = useState(null);
+    useEffect(() => {
+        const fetchContact = async () => {
+            try {
+                const data = await getSetting();
+                setSetting(data.setting);
+            } catch (error) {
+                console.error('Error ', error.message);
+            } finally {
+                setSettingLoading(false);
+            }
+        }
+
+        fetchContact();
+    }, [])
+
+    return {setting, settingLoading, settingError};
+}
 

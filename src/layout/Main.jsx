@@ -17,7 +17,7 @@ import { useFectPropertyByCity, useFetchProperty } from '../hooks/useFectPropert
 import '../assets/styles/layout.css';
 import '../assets/styles/global.css';
 
-const Main = ({ menu }) => {
+const Main = ({ menu, setting }) => {
     const [isHeaderFixed, setIsHeaderFixed] = useState(false);
     const categories = useFetchCategory();
     const properties = useFetchProperty();
@@ -35,7 +35,7 @@ const Main = ({ menu }) => {
     return (
         <div className="site-wrapper">
             <header className={`main-header ${isHeaderFixed ? 'header-sticky' : ''}`}>
-                <Header navigationLinks={menu} isLoggedIn={isLoggedIn()} />
+                <Header navigationLinks={menu} logo={setting} isLoggedIn={isLoggedIn()} />
             </header>
             
             <main className="content-area min-vh-100">
@@ -43,7 +43,7 @@ const Main = ({ menu }) => {
                     <Route path='/' element={<HomePage properties={properties} categories={categories} city_property={city_property} />} />
                     <Route path='/home' element={<HomePage properties={properties} categories={categories} city_property={city_property} />} />
                     <Route path='/properties' element={<PropertyListPage properties={properties} />} />
-                    <Route path='/types' element={<TypesPage categories={categories} />} />
+                    <Route path='/property-type' element={<TypesPage categories={categories} />} />
                     <Route path='/about-us' element={<AboutUsPage />} />
                     <Route path='/contact-us' element={<ContactUsPage contact_info={contact_info} />} />
                     <Route path='/property-detail' element={<PropertyDetailsPage />} />

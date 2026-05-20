@@ -20,3 +20,12 @@ export const getContact = async () => {
         console.error('Error', error.message);
     }
 }
+
+export const getSetting = async () => {
+    try {
+        const respone = await API.get('/get-setting')
+        return respone.data;
+    } catch(error) {
+        console.error('Error', error.message);
+    }
+}

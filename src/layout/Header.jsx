@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { Image } from '../components/GeneralComponent';
 import { ProfileDropdown } from '../components/Section/Home/ProfileDropdown';
+import config from '../config';
 
-const Header = ({ navigationLinks, isLoggedIn }) => {
+const Header = ({ navigationLinks, logo, isLoggedIn }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const links = Array.isArray(navigationLinks) ? navigationLinks.filter(link => link.slug.toLowerCase() === "main-menu") : [];
@@ -26,11 +27,10 @@ const Header = ({ navigationLinks, isLoggedIn }) => {
         <div className="container">
           {/* Brand Logo */}
           <Link to="/home" className="navbar-brand">
-            <Image 
-              type_image="assets/images/default/site_logo.png" 
-              type_name="Icon" 
-              className="logo-img" 
-            />
+            <Image type_image={logo.web_logo ? `storage/`+logo.web_logo : null} 
+                   type_name={logo.web_name} 
+                   defaultImage={`${config.app.url}/assets/images/default/site_logo.png`} 
+                   className={"logo-img"}  />
           </Link>
 
           {/* Mobile Toggle */}

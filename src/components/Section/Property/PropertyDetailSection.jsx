@@ -4,13 +4,14 @@ import ReportModal from '../../Modals/ReportModal';
 import ShareModal from '../../Modals/ShareModal';
 import { Image } from '../../GeneralComponent';
 import PropertyCard from '../../Card/PropertyCard';
+import config from '../../../config';
 
 // --------------------------------------------------------
 
 const PropertyDetailSection = ({properties, user}) => {
     // --- JSX RENDER START ---
     const { gallery_images, latest_list, property, related_list } = properties;
-    const user_image = user?.avatar.replace("http://127.0.0.1:8000/storage", '');
+    const user_image = user?.avatar.replace(`${config.app.url}/storage`, '');
     const handleReportSubmit = (e) => {
         e.preventDefault();
         alert('Report Submitted (Placeholder)');
@@ -25,7 +26,7 @@ const PropertyDetailSection = ({properties, user}) => {
                         <div className="col-xl-8 col-lg-12 ">
                             {/* Property Header (Main Image) */}
                             <div> 
-                                <Image type_image={property.image ? `storage/`+property.image : null }  defaultImage={'http://127.0.0.1:8000/upload/placeholder_img.jpg'} type_name={property.title} className={"img-fluid w-100 rounded"} />
+                                <Image type_image={property.image ? `storage/`+property.image : null }  defaultImage={`${config.app.url}/upload/placeholder_img.jpg`} type_name={property.title} className={"img-fluid w-100 rounded"} />
                             </div>
 
                             {/* Property Title, Location, Price, and Actions */}
@@ -119,7 +120,7 @@ const PropertyDetailSection = ({properties, user}) => {
                                             <div className="carousel-inner">
                                                 {gallery_images.map((img, i) => (
                                                     <div key={img.id} className={`carousel-item ${i === 0 ? 'active' : ''}`}>
-                                                        <Image type_image={img.image.replace("upload/placeholder_img.jpg", '') ? `storage/`+img.image : null }  defaultImage={'http://127.0.0.1:8000/upload/placeholder_img.jpg'} type_name={`Gallery slide ${i + 1}`} className={"d-block w-100"} />
+                                                        <Image type_image={img.image.replace("upload/placeholder_img.jpg", '') ? `storage/`+img.image : null }  defaultImage={`${config.app.url}/upload/placeholder_img.jpg`} type_name={`Gallery slide ${i + 1}`} className={"d-block w-100"} />
                                                     </div>
                                                 ))}
                                             </div>
@@ -177,7 +178,7 @@ const PropertyDetailSection = ({properties, user}) => {
                                         <div id="floor_plan" className="list-details-section">
                                             <h4 className="pb-2">Floor Plan Image</h4>
                                             <div className="text-center">
-                                                <Image type_image={property.floor_plan_image || null }  defaultImage={'http://127.0.0.1:8000/upload/placeholder_img.jpg'} type_name={"Floor Plan"} className={"img-fluid w-100"} />
+                                                <Image type_image={property.floor_plan_image || null }  defaultImage={`${config.app.url}/upload/placeholder_img.jpg`} type_name={"Floor Plan"} className={"img-fluid w-100"} />
                                             </div>
                                         </div>
                                     )}
@@ -200,7 +201,7 @@ const PropertyDetailSection = ({properties, user}) => {
                                 {latest_list.map((latest) => (
                                     <article key={latest.id} className="property-card">
                                         <div className="property-image-container">
-                                                <Image type_image={latest.image ? `storage/`+latest.image : null }  defaultImage={'http://127.0.0.1:8000/upload/placeholder_img.jpg'} type_name={latest.title} style={{width: "45%", height: "auto",}} className={"property-image rounded"} />
+                                                <Image type_image={latest.image ? `storage/`+latest.image : null }  defaultImage={`${config.app.url}/upload/placeholder_img.jpg`} type_name={latest.title} style={{width: "45%", height: "auto",}} className={"property-image rounded"} />
                                             
                                             <div className="property-details ms-3">
                                                 <span className={`property-category-tag `}>

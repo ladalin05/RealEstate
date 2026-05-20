@@ -3,16 +3,17 @@ import { BannerSection } from "../components/Section/BannerSection";
 import sectionImage from '../assets/images/breadcrumb.jpg';
 import { ImageTextSection } from "../components/Section/AboutUs/ImageTextSection";
 import '../assets/styles/about_us.css'
+import config from "../config";
 
 // --- Main Component ---
 
 const AboutUsPage = () => {
     const data = {
             content1: "<h3>Welcome to Viavi Real Estate</h3><p>Welcome to Viavi Real Estate, where we turn houses into homes and dreams into reality. This Viavi Real Estate Portal is designed to make property management and browsing a breeze, offering a robust set of features tailored to the needs of today’s real estate market.<br /><br />At Viavi Real Estate, our unwavering commitment lies in crafting unparalleled real estate journeys. Our seasoned professionals, armed with extensive market knowledge, walk alongside you through every phase of your property endeavor. We prioritize understanding your unique aspirations, tailoring our expertise to match your vision.<br /><br />Discover your dream home effortlessly. Explore diverse properties and expert guidance for a seamless buying experience.</p>",
-            image1: "http://127.0.0.1:8000/upload/placeholder_img.jpg",
+            image1: `${config.app.url}/upload/placeholder_img.jpg`,
 
             content2: "<h3>Discover What Sets Our Real Estate Expertise Apart</h3><p>Welcome to Viavi Real Estate, where we turn houses into homes and dreams into reality. This Viavi Real Estate Portal is designed to make property management and browsing a breeze, offering a robust set of features tailored to the needs of today’s real estate market.<br /><br />At Viavi Real Estate, our unwavering commitment lies in crafting unparalleled real estate journeys. Our seasoned professionals, armed with extensive market knowledge, walk alongside you through every phase of your property endeavor. We prioritize understanding your unique aspirations, tailoring our expertise to match your vision.<br /><br />Discover your dream home effortlessly. Explore diverse properties and expert guidance for a seamless buying experience.</p>",
-            image2: "http://127.0.0.1:8000/upload/placeholder_img.jpg",
+            image2: `${config.app.url}/upload/placeholder_img.jpg`,
 
             siteName: "VFX Realty", 
             currencyCode: "USD" 

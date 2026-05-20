@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Image } from '../GeneralComponent';
 import { useNavigate } from 'react-router-dom';
 import { formatPrice, handleFavourit, showProperty } from '../../services/functionService';
+import config from '../../config';
 
 const PopularCard = ({ property }) => {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ const PopularCard = ({ property }) => {
       {/* Image Section */}
       <div className="position-relative">
         <a className="vfx-property-img" title={title}  onClick={() => showProperty(id)} >
-          <Image type_image={image ? `storage/`+image : null} type_name={"Property"} defaultImage={"http://127.0.0.1:8000/upload/placeholder_img.jpg"} className={"card-img-top property-img"}  />
+          <Image type_image={image ? `storage/`+image : null} type_name={"Property"} defaultImage={`${config.app.url}/upload/placeholder_img.jpg`} className={"card-img-top property-img"}  />
         </a>
         {/* Purpose Badge */}
         <span className="badge bg-primary position-absolute text-capitalize top-0 start-0 m-3">{purpose}</span>
@@ -48,7 +49,7 @@ const PopularCard = ({ property }) => {
 
       {/* <div className="card-footer bg-white border-top-0 mt-0 ">
         <div className="d-flex align-items-center">
-          <img src={user_image ? `http://127.0.0.1:8000/${user_image}` : 'https://img.freepik.com/premium-vector/user-icon-icon_1076610-59410.jpg'} 
+          <img src={user_image ? `` : 'https://img.freepik.com/premium-vector/user-icon-icon_1076610-59410.jpg'} 
                alt={user_name_en} className="rounded-circle me-2" width="30" height="30" />
           <span className="small text-muted">{user_name_en || "No User"}</span>
         </div>
